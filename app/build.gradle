@@ -1,0 +1,77 @@
+import com.example.emojis.buildsrc.Libs
+
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+}
+
+android {
+    compileSdkVersion 31
+
+    defaultConfig {
+        applicationId 'com.example.empjiApp'
+        minSdkVersion 21
+        targetSdkVersion 31
+        versionCode 1
+        versionName '1.0'
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    buildFeatures {
+        compose true
+        // Disable unused AGP features
+        buildConfig false
+        aidl false
+        renderScript false
+        resValues false
+        shaders false
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion Libs.AndroidX.Compose.version
+    }
+}
+
+dependencies {
+    implementation Libs.Kotlin.stdlib
+    implementation Libs.Coroutines.android
+
+    implementation Libs.Coroutines.core
+
+    implementation Libs.AndroidX.coreKtx
+    implementation Libs.AndroidX.Activity.activityCompose
+    implementation Libs.AndroidX.Lifecycle.viewModelCompose
+    implementation Libs.AndroidX.Navigation.navigationCompose
+    implementation Libs.AndroidX.ConstraintLayout.constraintLayoutCompose
+
+    implementation Libs.AndroidX.Compose.runtime
+    implementation Libs.AndroidX.Compose.foundation
+    implementation Libs.AndroidX.Compose.layout
+    implementation Libs.AndroidX.Compose.ui
+    implementation Libs.AndroidX.Compose.uiUtil
+    implementation Libs.AndroidX.Compose.material
+    implementation Libs.AndroidX.Compose.animation
+    implementation Libs.AndroidX.Compose.iconsExtended
+    implementation Libs.AndroidX.Compose.tooling
+
+    implementation Libs.Accompanist.insets
+    implementation Libs.Accompanist.systemuicontroller
+    implementation Libs.Accompanist.flowlayouts
+
+    implementation Libs.Coil.coilCompose
+
+    androidTestImplementation Libs.JUnit.junit
+    androidTestImplementation Libs.AndroidX.Test.core
+    androidTestImplementation Libs.AndroidX.Test.runner
+    androidTestImplementation Libs.AndroidX.Test.espressoCore
+    androidTestImplementation Libs.AndroidX.Test.rules
+    androidTestImplementation Libs.AndroidX.Test.Ext.junit
+    androidTestImplementation Libs.Coroutines.test
+    androidTestImplementation Libs.AndroidX.Compose.uiTest
+}
